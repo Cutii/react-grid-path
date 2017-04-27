@@ -1,0 +1,5 @@
+node_modules
+logs
+example/node_modules
+dist
+example/dist
