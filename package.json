@@ -1,6 +1,6 @@
 {
   "name": "react-grid-path",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "module": "lib/index.js",
   "description": "A pathfinding grid for React.",
