@@ -2,6 +2,8 @@
 
 :chart_with_upwards_trend: A pathfinding grid for React.
 
+See the live [example](https://matthieulemoine.github.io/react-grid-path/example).
+
 ![Example](example/react-grid-path.png)
 
 ## Description

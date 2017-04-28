@@ -5,6 +5,7 @@
   "description": "Pathfinding grid example.",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config.js --progress --watch",
+    "build": "NODE_ENV=production webpack --config webpack.config.js --progress",
     "lint": "eslint **/*.js",
     "lint:fix": "eslint **/*.js --fix"
   },

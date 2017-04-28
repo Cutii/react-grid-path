@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Grid from '../../../lib';
+import Grid from '../../../../lib';
 import Actions from '../actions';
 import findPath from '../../services/path-finder';
 
@@ -8,6 +8,10 @@ const Container = styled.div`
   display        : flex;
   flex-direction : column;
   align-items    : stretch;
+`;
+
+const Title = styled.h1`
+  text-align : center;
 `;
 
 class Application extends Component {
@@ -55,6 +59,7 @@ class Application extends Component {
   render() {
     return (
       <Container>
+        <Title>React Grid Path</Title>
         <Actions onSearch={this.onSearch} />
         {/* react-grid-path Grid */}
         <Grid
