@@ -29,7 +29,7 @@
   "homepage": "https://github.com/MatthieuLemoine/react-grid-path#readme",
   "dependencies": {
     "prop-types": "^15.5.8",
-    "react-svg-pathline": "github:matthieulemoine/react-svg-pathline#github",
+    "react-svg-pathline": "^0.4.0",
     "styled-components": "^1.4.5"
   },
   "devDependencies": {
