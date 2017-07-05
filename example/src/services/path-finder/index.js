@@ -2,7 +2,7 @@ import pathFinding from 'pathfinding';
 
 // Example of pathfinding
 export default request => {
-  const GRID_WIDTH  = (request.grid || {}).width || 50;
+  const GRID_WIDTH = (request.grid || {}).width || 50;
   const GRID_HEIGHT = (request.grid || {}).height || 50;
   // Start point
   const start = request.start || {
@@ -23,9 +23,9 @@ export default request => {
   }, new Array(GRID_HEIGHT).fill().map(() => new Array(GRID_WIDTH).fill(false)));
   // Generate path
   return getPath({
-    grid       : getGrid({ width : GRID_WIDTH, height : GRID_HEIGHT, obstacles }),
+    grid : getGrid({ width : GRID_WIDTH, height : GRID_HEIGHT, obstacles }),
     startPoint : start,
-    endPoint   : end,
+    endPoint : end,
   });
 };
 
@@ -34,7 +34,7 @@ function getPath({ grid, startPoint, endPoint }) {
   // Path finder
   const finder = new pathFinding.AStarFinder({
     diagonalMovement : pathFinding.DiagonalMovement.Never,
-    weight           : 2,
+    weight : 2,
   });
   // Setup grid
   const pfGrid = new pathFinding.Grid(grid);

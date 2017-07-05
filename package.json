@@ -8,19 +8,15 @@
     "build": "webpack --config webpack.config.js --progress",
     "prepublish": "npm run build",
     "lint": "eslint **/*.js",
-    "lint:fix": "eslint **/*.js --fix"
+    "lint:fix": "eslint **/*.js --fix",
+    "pretty": "prettier-eslint --single-quote --trailing-comma es5 --write \"**/*.js\" \"**/*.json\"",
+    "pretty:check": "prettier-eslint --single-quote --trailing-comma es5 --list-different --log-level silent \"**/*.js\" \"**/*.json\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MatthieuLemoine/react-grid-path.git"
   },
-  "keywords": [
-    "grid",
-    "path",
-    "pathfinding",
-    "react",
-    "plot"
-  ],
+  "keywords": ["grid", "path", "pathfinding", "react", "plot"],
   "author": "MatthieuLemoine",
   "license": "MIT",
   "bugs": {
@@ -43,6 +39,9 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
+    "prettier": "^1.5.2",
+    "prettier-eslint": "^6.4.2",
+    "prettier-eslint-cli": "^4.1.1",
     "webpack": "^2.4.1"
   },
   "peerDependencies": {

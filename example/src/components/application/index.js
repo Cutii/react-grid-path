@@ -5,31 +5,29 @@ import Actions from '../actions';
 import findPath from '../../services/path-finder';
 
 const Container = styled.div`
-  display        : flex;
-  flex-direction : column;
-  align-items    : stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 `;
 
-const Title = styled.h1`
-  text-align : center;
-`;
+const Title = styled.h1`text-align: center;`;
 
 class Application extends Component {
   constructor(props) {
     super(props);
-    this.onSearch     = this.onSearch.bind(this);
+    this.onSearch = this.onSearch.bind(this);
     this.onGridUpdate = this.onGridUpdate.bind(this);
 
-    const width  = 40;
+    const width = 40;
     const height = 30;
-    this.state   = {
-      path      : [],
+    this.state = {
+      path : [],
       obstacles : [],
-      start     : {
+      start : {
         x : 0,
         y : Math.round(height / 2),
       },
-      end            : {
+      end : {
         x : width - 1,
         y : Math.round(height / 2),
       },
@@ -43,14 +41,14 @@ class Application extends Component {
   onSearch() {
     const path = findPath({
       grid : {
-        width  : this.state.width,
+        width : this.state.width,
         height : this.state.height,
       },
-      start     : this.state.start,
-      end       : this.state.end,
+      start : this.state.start,
+      end : this.state.end,
       obstacles : this.state.obstacles,
-      timeStep  : this.state.timeStep,
-      maxTime   : this.state.maxTime,
+      timeStep : this.state.timeStep,
+      maxTime : this.state.maxTime,
     });
     this.setState({
       path,

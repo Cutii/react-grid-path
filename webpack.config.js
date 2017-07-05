@@ -1,19 +1,19 @@
-const path    = require('path');
+const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry   : path.resolve(__dirname, 'lib', 'index.js'),
-  output  : {
-    path          : path.join(__dirname, 'dist'),
-    filename      : 'react-grid-path.js',
-    library       : 'react-grid-path',
+  entry : path.resolve(__dirname, 'lib', 'index.js'),
+  output : {
+    path : path.join(__dirname, 'dist'),
+    filename : 'react-grid-path.js',
+    library : 'react-grid-path',
     libraryTarget : 'umd',
   },
   module : {
     rules : [
       {
-        test    : /\.js$/,
-        loader  : 'babel-loader',
+        test : /\.js$/,
+        loader : 'babel-loader',
         exclude : /node_modules/,
       },
     ],
@@ -21,9 +21,9 @@ module.exports = {
   plugins : [
     new webpack.optimize.UglifyJsPlugin({
       sourceMap : false,
-      beautify  : false,
-      mangle    : {
-        screw_ie8   : true,
+      beautify : false,
+      mangle : {
+        screw_ie8 : true,
         keep_fnames : true,
       },
       compress : {
@@ -36,7 +36,7 @@ module.exports = {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize : true,
-      debug    : false,
+      debug : false,
     }),
   ],
 };

@@ -13,13 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/MatthieuLemoine/react-grid-path.git"
   },
-  "keywords": [
-    "grid",
-    "path",
-    "react",
-    "plot",
-    "example"
-  ],
+  "keywords": ["grid", "path", "react", "plot", "example"],
   "author": "MatthieuLemoine",
   "license": "MIT",
   "bugs": {
