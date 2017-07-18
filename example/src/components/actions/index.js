@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -14,13 +14,30 @@ const Container = styled.div`
 
 const Button = styled.button`font-size: 1em;`;
 
-const Actions = ({ onSearch }) =>
-  <Container onClick={onSearch}>
-    <Button>Find</Button>
+const CheckboxContainer = styled.div``;
+
+const CheckboxLabel = styled.label``;
+
+const Checkbox = styled.input``;
+
+const Actions = ({ onSearch, toggleClearance, withClearance }) =>
+  <Container>
+    <Button onClick={onSearch}>Find</Button>
+    <CheckboxContainer>
+      <CheckboxLabel>Toggle clearance</CheckboxLabel>
+      <Checkbox
+        name="clearance"
+        type="checkbox"
+        checked={withClearance}
+        onChange={toggleClearance}
+      />
+    </CheckboxContainer>
   </Container>;
 
 Actions.propTypes = {
   onSearch : PropTypes.func.isRequired,
+  toggleClearance : PropTypes.func.isRequired,
+  withClearance : PropTypes.bool,
 };
 
 export default Actions;
