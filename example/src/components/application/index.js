@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Grid from '../../../../lib';
 import Actions from '../actions';
 import findPath from '../../services/path-finder';
-import config from '../../config';
 
 const Container = styled.div`
   display: flex;
@@ -19,6 +18,7 @@ class Application extends Component {
     this.onSearch = this.onSearch.bind(this);
     this.onGridUpdate = this.onGridUpdate.bind(this);
     this.toggleClearance = this.toggleClearance.bind(this);
+    this.onUnitSizeChange = this.onUnitSizeChange.bind(this);
 
     const width = 40;
     const height = 30;
@@ -27,16 +27,17 @@ class Application extends Component {
       obstacles : [],
       clearance : new Array(30).fill(new Array(40)),
       start : {
-        x : Math.round(config.MOBILE_SIZE / 2) + 1,
+        x : 1,
         y : Math.round(height / 2),
       },
       end : {
-        x : width - 2 - Math.round(config.MOBILE_SIZE / 2),
+        x : width - 2,
         y : Math.round(height / 2),
       },
       width,
       height,
       withClearance : false,
+      unitSize : 1,
     };
   }
   onGridUpdate({ obstacles, start, end }) {
@@ -53,10 +54,17 @@ class Application extends Component {
       obstacles : this.state.obstacles,
       timeStep : this.state.timeStep,
       maxTime : this.state.maxTime,
+      unitSize : this.state.unitSize,
     });
     this.setState({
       path,
       clearance,
+    });
+  }
+  onUnitSizeChange(event) {
+    this.setState({
+      unitSize : parseInt(event.target.value, 10),
+      withClearance : event.target.value <= 1 ? false : this.state.withClearance,
     });
   }
   toggleClearance() {
@@ -70,6 +78,8 @@ class Application extends Component {
           onSearch={this.onSearch}
           toggleClearance={this.toggleClearance}
           withClearance={this.state.withClearance}
+          unitSize={this.state.unitSize}
+          onUnitSizeChange={this.onUnitSizeChange}
         />
         {/* react-grid-path Grid */}
         <Grid
@@ -81,7 +91,7 @@ class Application extends Component {
           path={this.state.path}
           clearance={this.state.withClearance ? this.state.clearance : undefined}
           onGridUpdate={this.onGridUpdate}
-          mobileSize={config.MOBILE_SIZE}
+          mobileSize={this.state.unitSize}
         />
       </Container>
     );

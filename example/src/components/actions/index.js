@@ -14,30 +14,38 @@ const Container = styled.div`
 
 const Button = styled.button`font-size: 1em;`;
 
-const CheckboxContainer = styled.div``;
+const InputContainer = styled.div``;
 
-const CheckboxLabel = styled.label``;
+const Label = styled.label``;
 
-const Checkbox = styled.input``;
+const Input = styled.input``;
 
-const Actions = ({ onSearch, toggleClearance, withClearance }) =>
+const Actions = ({ onSearch, toggleClearance, withClearance, unitSize, onUnitSizeChange }) =>
   <Container>
     <Button onClick={onSearch}>Find</Button>
-    <CheckboxContainer>
-      <CheckboxLabel>Toggle clearance</CheckboxLabel>
-      <Checkbox
-        name="clearance"
-        type="checkbox"
-        checked={withClearance}
-        onChange={toggleClearance}
-      />
-    </CheckboxContainer>
+    {unitSize > 1
+      ? <InputContainer>
+        <Label>Toggle clearance</Label>
+        <Input
+          name="clearance"
+          type="checkbox"
+          checked={withClearance}
+          onChange={toggleClearance}
+        />
+      </InputContainer>
+      : null}
+    <InputContainer>
+      <Label>Unit size</Label>
+      <Input name="unitSize" type="number" value={unitSize} onChange={onUnitSizeChange} />
+    </InputContainer>
   </Container>;
 
 Actions.propTypes = {
   onSearch : PropTypes.func.isRequired,
   toggleClearance : PropTypes.func.isRequired,
   withClearance : PropTypes.bool,
+  onUnitSizeChange : PropTypes.func.isRequired,
+  unitSize : PropTypes.number.isRequired,
 };
 
 export default Actions;

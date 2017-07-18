@@ -1,5 +1,4 @@
 import pathFinding from 'pathfinding';
-import config from '../../config';
 
 // Example of pathfinding
 export default request => {
@@ -27,16 +26,17 @@ export default request => {
     grid : getGrid({ width : GRID_WIDTH, height : GRID_HEIGHT, obstacles }),
     startPoint : start,
     endPoint : end,
+    unitSize : request.unitSize,
   });
 };
 
 // Get optimal path
-function getPath({ grid, startPoint, endPoint }) {
+function getPath({ grid, startPoint, endPoint, unitSize }) {
   // Path finder
   const finder = new pathFinding.AStarFinder({
     diagonalMovement : pathFinding.DiagonalMovement.Never,
     weight : 2,
-    unitSize : config.MOBILE_SIZE,
+    unitSize,
   });
   // Setup grid
   const pfGrid = new pathFinding.Grid(grid);
