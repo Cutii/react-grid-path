@@ -40,8 +40,8 @@ class Application extends Component {
       unitSize : 1,
     };
   }
-  onGridUpdate({ obstacles, start, end }) {
-    this.setState({ obstacles, start, end });
+  onGridUpdate(field, value) {
+    this.setState({ [field] : value });
   }
   onSearch() {
     const { path, clearance } = findPath({
