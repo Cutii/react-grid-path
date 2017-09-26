@@ -40,7 +40,7 @@ npm i -S react-grid-path
 - Example
 
 ```javascript
-import Grid from 'grid';
+import Grid from 'react-grid-path';
 
 // Example
 class Application extends Component {
